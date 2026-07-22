@@ -1,16 +1,3 @@
-"""
-interfaz.py
-
-Todo el renderizado con Pygame: tema claro (azul/blanco/naranja) con un
-panel oscuro solo para el estado del pedido en curso, usando solo formas
-primitivas de Pygame (rect, circle, arc, line) -sin imagenes ni fuentes
-externas-.
-
-Este modulo NO decide logica de negocio (eso vive en grafo.py, arbol.py,
-dispatcher.py, main.py). Solo sabe dibujar y, para el mouse, decir sobre
-que zona se hizo click. Todos los textos/colores de estado que dibuja los
-recibe ya resueltos de main.py.
-"""
 
 import math
 
