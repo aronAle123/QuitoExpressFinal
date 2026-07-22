@@ -1,35 +1,4 @@
-"""
-main.py
 
-Punto de entrada de QuitoExpress. Arranca Pygame, crea el Dispatcher
-(que lanza los procesos de los repartidores) y corre el loop principal
-que conecta: click del mouse -> GrafoCiudad (Prim / Arbol de Expansion
-Minima) -> arboles de decision -> Dispatcher -> interfaz (dibujo).
-
-La interfaz esta organizada en FASES para la tarjeta de SELECCION en curso
-(como una app de transporte real): SELECCIONANDO_PICKUP ->
-SELECCIONANDO_DROPOFF -> RESUMEN -> (confirmar) -> vuelve sola a
-SELECCIONANDO_PICKUP. `fase_actual` no se mutua a mano en cada handler: se
-DERIVA cada frame a partir del pickup/dropoff en curso (ver
-`calcular_fase`), asi no hay forma de que la fase quede desincronizada del
-estado real. Es importante notar que la fase SOLO describe la seleccion que
-se esta armando: no importa cuantos pedidos ya confirmados esten corriendo
-en paralelo, la tarjeta de seleccion siempre esta disponible para armar uno
-nuevo.
-
-Los pedidos ya confirmados viven aparte, en `EstadoApp.pedidos`, y se
-muestran en el panel oscuro de "pedidos activos" (hasta varias tarjetas
-apiladas, ver `interfaz.dibujar_panel_estado`) hasta que llegan a
-`entregado` y pasan al historial.
-
-Todos los controles son por click (botones + mapa + buscador); la unica
-tecla que se conserva es ESC para salir.
-
-multiprocessing.freeze_support() se llama al inicio de
-`if __name__ == "__main__":` porque asi lo exige PyInstaller en Windows
-para que el .exe empaquetado no relance la app entera al crear cada
-Process hijo.
-"""
 
 import multiprocessing as mp
 import time
