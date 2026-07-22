@@ -1,24 +1,4 @@
-"""
-arbol.py
 
-Dos arboles de decision, cada uno con una consecuencia funcional real
-sobre el sistema (no son solo informativos):
-
-1. ArbolAsignacionLocal: decide que local (A o B) despacha un pedido.
-   Nivel 1 (raiz): que local esta mas cerca segun el Arbol de Expansion
-   Minima (Prim, ver grafo.py).
-   Nivel 2: si ese local tiene un repartidor disponible ahora mismo.
-   Si no lo tiene, la rama de "no disponible" hace failover al otro local.
-
-2. ArbolTipoServicio: clasifica el pedido (Comida/Documento/Paquete).
-   Cada hoja trae una prioridad (usada por la cola del Dispatcher) y un
-   multiplicador de tiempo (usado por el proceso del repartidor).
-
-Los 4 recorridos de arbol de la Unidad 6 (pre-orden, post-orden, in-orden
-y en amplitud/por niveles) estan implementados como metodos reutilizables
-de NodoArbol: cada uno recibe una funcion `fn` a aplicar sobre cada nodo
-visitado, en vez de imprimir directamente.
-"""
 
 from collections import deque
 
