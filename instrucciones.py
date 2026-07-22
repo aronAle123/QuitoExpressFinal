@@ -1,15 +1,3 @@
-"""
-instrucciones.py
-
-Pantalla de instrucciones del proyecto QuitoExpress.
-
-Presenta una guía rápida de uso del simulador antes de acceder a la
-interfaz principal. Resume el flujo básico para crear un pedido y
-explica la información que el usuario visualizará durante la simulación.
-
-Esta pantalla únicamente muestra información al usuario y no interactúa
-con el grafo, el dispatcher ni la lógica del sistema.
-"""
 
 import pygame
 from recursos import recurso
