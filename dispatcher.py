@@ -1,20 +1,4 @@
-"""
-dispatcher.py
 
-El Dispatcher vive en el proceso principal y es el "cerebro" que conecta
-los pedidos con los repartidores (procesos independientes):
-
-- Crea los Process de cada repartidor (N por local) y sus colas.
-- Mantiene, por local, el conjunto de repartidores libres y una cola de
-  PRIORIDAD (heapq) de pedidos pendientes cuando no hay repartidor libre.
-  La prioridad viene del ArbolTipoServicio (1 = alta, 3 = baja).
-- Lee sin bloquear (get_nowait) la cola de estado compartida donde todos
-  los repartidores reportan sus eventos, y con eso decide a quien
-  despachar el siguiente pedido pendiente.
-- Si un repartidor "cae", reencola su pedido (con la ruta restante) al
-  heap de su local para que lo tome otro repartidor libre: asi se
-  demuestra tolerancia a fallos real, no solo un print.
-"""
 
 import heapq
 import itertools
