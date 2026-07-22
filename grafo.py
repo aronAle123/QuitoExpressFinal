@@ -1,41 +1,4 @@
-"""
-grafo.py
 
-Grafo ponderado y no dirigido que representa el mapa de zonas de Quito.
-Implementado desde cero (sin networkx): la clase GrafoCiudad guarda un
-diccionario de adyacencia y usa el algoritmo de Prim (con una cola de
-prioridad, heapq) para construir el Arbol de Expansion Minima (MST) de la
-ciudad. Las rutas entre zonas se calculan recorriendo el UNICO camino que
-existe dentro de ese arbol, no con Dijkstra sobre el grafo original.
-
---- Por que Prim (MST) y no Dijkstra ---
-
-El profesor pidio especificamente Prim o Kruskal para la parte de grafos
-del curso; Dijkstra no forma parte de esa unidad. Prim encaja de forma
-natural con el problema real: conectar todas las zonas de la ciudad con el
-menor costo total de "calles" (suma de pesos minima), que es exactamente lo
-que resuelve un Arbol de Expansion Minima.
-
-Una vez que existe ese arbol, las rutas se obtienen recorriendo el unico
-camino entre dos zonas dentro de el (ver `camino_en_arbol`). Esto NO es
-Dijkstra ni un sustituto disfrazado: dentro de un arbol no hay ciclos, asi
-que por definicion hay EXACTAMENTE un camino entre cualquier par de nodos
-conectados, y encontrarlo es solo una busqueda simple, no una comparacion
-de multiples opciones con pesos acumulados.
-
-La consecuencia honesta de este cambio: la ruta que se obtiene NO esta
-garantizada matematicamente a ser la mas corta posible del grafo original
-en absolutamente todos los casos (esa garantia especificamente la da
-Dijkstra, no Prim). Lo que si se garantiza es la ruta dentro de la red de
-costo minimo que conecta la ciudad completa (el MST) -y esa es la
-herramienta de grafos que corresponde a lo visto en clase, no una
-aproximacion improvisada.
-
-El MST se construye UNA sola vez (ver `construir_arbol_expansion_minima`),
-normalmente justo al armar el grafo de Quito en datos_zonas.py, y se
-reutiliza para todos los calculos de ruta posteriores en vez de recalcularse
-en cada pedido.
-"""
 
 import heapq
 import random
