@@ -1,16 +1,4 @@
-"""
-bienvenida.py
 
-Pantalla inicial del proyecto QuitoExpress.
-
-Muestra la presentación del simulador con el logo, la información del
-proyecto y sus integrantes. Su única responsabilidad es esperar a que el
-usuario presione el botón "Iniciar" para continuar con la pantalla de
-instrucciones.
-
-Esta pantalla es independiente del simulador principal: no inicializa el
-grafo, el dispatcher ni la lógica de negocio.
-"""
 
 import pygame
 from recursos import recurso
