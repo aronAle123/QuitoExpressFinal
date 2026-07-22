@@ -1,14 +1,4 @@
-"""
-datos_zonas.py
 
-Datos del mapa de Quito: zonas (con coordenadas para dibujar en Pygame),
-los dos locales de despacho, y las conexiones (calles) entre ellas con su
-peso (distancia estimada en km).
-
-Mantener los datos separados de grafo.py permite que grafo.py sea
-puramente la estructura de datos + el algoritmo, reutilizable con
-cualquier conjunto de zonas.
-"""
 
 from grafo import Zona, GrafoCiudad
 
