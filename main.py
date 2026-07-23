@@ -751,6 +751,7 @@ def main():
             if estado_app.mostrar_historial and layout["rect_historial"] is not None:
                 ui.dibujar_panel_historial(pantalla, fuentes, layout["rect_historial"], layout["filas_historial"], estado_app.historial_scroll)
             boton_historial.dibujar(pantalla, fuentes["chica"])
+            boton_accidente.dibujar(pantalla, fuentes["chica"])
 
             pygame.display.flip()
             reloj.tick(30)
